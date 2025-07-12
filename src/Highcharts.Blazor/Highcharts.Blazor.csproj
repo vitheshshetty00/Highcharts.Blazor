@@ -20,9 +20,12 @@
     <Description>High-performance, enterprise-grade Blazor wrapper for Highcharts.js with .NET 9 optimization</Description>
     <Copyright>Copyright © 2025</Copyright>
     <PackageTags>blazor;highcharts;charts;visualization;rcl;razor-class-library</PackageTags>
+    <PackageProjectUrl>https://github.com/vitheshshetty00/Highcharts.Blazor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vitheshshetty00/Highcharts.Blazor</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>See CHANGELOG.md for release notes</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     
