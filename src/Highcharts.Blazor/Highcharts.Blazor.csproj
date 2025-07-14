@@ -15,7 +15,7 @@
     <PackageId>Highcharts.Blazor</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
     <Title>Highcharts.Blazor</Title>
-    <Authors>Vithesh Shetty/Authors>
+    <Authors>Vithesh Shetty</Authors>
     <Company>AMIT</Company>
     <Description>High-performance, enterprise-grade Blazor wrapper for Highcharts.js with .NET 9 optimization</Description>
     <Copyright>Copyright © 2025</Copyright>
