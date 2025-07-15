@@ -1,20 +1,11 @@
+
+@using System.Runtime.InteropServices.JavaScript
+@using Microsoft.JSInterop
 @using Highcharts.Blazor.Services
 @using Highcharts.Blazor.Models
-@inject HighchartsService HighchartsService
+
+@implements IAsyncDisposable
 
 <div id="@ChartContainerId" class="highcharts-container"></div>
 
-@code {
-    private string ChartContainerId { get; } = $"highcharts-chart-{Guid.NewGuid()}";
 
-    [Parameter]
-    public ChartOptions? Options { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && Options != null)
-        {
-            await HighchartsService.RenderChartAsync(ChartContainerId, Options);
-        }
-    }
-}

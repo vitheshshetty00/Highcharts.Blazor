@@ -1,0 +1,51 @@
+
+using System.Text.Json.Serialization;
+using Highcharts.Blazor.Models;
+
+namespace Highcharts.Blazor;
+
+[JsonSerializable(typeof(ChartOptions))]
+[JsonSerializable(typeof(PointClickEventArgs))]
+[JsonSerializable(typeof(LineSeries))]
+[JsonSerializable(typeof(ColumnSeries))]
+[JsonSerializable(typeof(PieSeries))]
+[JsonSerializable(typeof(Accessibility))]
+[JsonSerializable(typeof(Animation))]
+[JsonSerializable(typeof(Credits))]
+[JsonSerializable(typeof(Responsive))]
+[JsonSerializable(typeof(Exporting))]
+[JsonSerializable(typeof(Pane))]
+[JsonSerializable(typeof(Drilldown))]
+[JsonSerializable(typeof(Options3D))]
+[JsonSerializable(typeof(Position))]
+[JsonSerializable(typeof(DataLabels))]
+[JsonSerializable(typeof(Datum))]
+[JsonSerializable(typeof(Hover))]
+[JsonSerializable(typeof(Label))]
+[JsonSerializable(typeof(Style))]
+[JsonSerializable(typeof(Marker))]
+[JsonSerializable(typeof(States))]
+[JsonSerializable(typeof(FillColorObject))]
+[JsonSerializable(typeof(PatternOptionsObject))]
+[JsonSerializable(typeof(PlotLine))]
+[JsonSerializable(typeof(PlotOptionsSeries))]
+[JsonSerializable(typeof(PlotOptionsArea))]
+[JsonSerializable(typeof(PlotOptionsBar))]
+[JsonSerializable(typeof(PlotOptionsPie))]
+[JsonSerializable(typeof(PlotOptionsColumn))]
+[JsonSerializable(typeof(PlotOptionsLine))]
+[JsonSerializable(typeof(PlotOptionsScatter))]
+[JsonSerializable(typeof(PlotOptionsSpline))]
+[JsonSerializable(typeof(PlotOptionsColumnRange))]
+[JsonSerializable(typeof(PlotOptionsSolidgauge))]
+[JsonSerializable(typeof(SeriesEvents))]
+[JsonSerializable(typeof(PointOptions))]
+[JsonSerializable(typeof(PointEvents))]
+[JsonSerializable(typeof(Labels))]
+[JsonSerializable(typeof(SeriesElement))]
+[JsonSerializable(typeof(Stop))]
+[JsonSerializable(typeof(Rule))]
+[JsonSerializable(typeof(Condition))]
+public partial class HighchartsJsonSerializerContext : JsonSerializerContext
+{
+}

@@ -1,0 +1,73 @@
+
+@page "/dynamic-chart"
+@using System.Text.Json
+@using Highcharts.Blazor.Models
+@using Highcharts.Blazor.Services
+@using Highcharts.Blazor
+@inject HighchartsService HighchartsService
+
+<h1>Dynamic Chart</h1>
+
+<p>This page demonstrates how to dynamically update a chart and handle events.</p>
+
+<HighchartsChart @ref="chartComponent" Options="@chartOptions" OnPointClick="@HandlePointClick" />
+
+<div class="mt-3">
+    <button class="btn btn-primary" @onclick="AddSeries">Add Series</button>
+    <button class="btn btn-danger" @onclick="RemoveSeries">Remove Series</button>
+    <button class="btn btn-success" @onclick="AddPoint">Add Point</button>
+</div>
+
+@if (selectedPoint is not null)
+{
+    <div class="mt-3">
+        <h5>Selected Point</h5>
+        <p>Series: @selectedPoint.SeriesName</p>
+        <p>X: @selectedPoint.X</p>
+        <p>Y: @selectedPoint.Y</p>
+    </div>
+}
+
+@code {
+    private HighchartsChart? chartComponent;
+    private PointClickEventArgs? selectedPoint;
+
+    private ChartOptions chartOptions = new()
+    {
+        Title = new Title { Text = "Dynamic Chart" },
+        Series = new List<Series>
+        {
+            new LineSeries
+            {
+                Name = "Initial Series",
+                Data = new List<object> { 1, 2, 3 }
+            }
+        }
+    };
+
+    private async Task AddSeries()
+    {
+        var newSeries = new LineSeries
+        {
+            Name = "New Series",
+            Data = new List<object> { 4, 5, 6 }
+        };
+        await HighchartsService.AddSeriesAsync(chartComponent!.ChartContainerId, JsonSerializer.Serialize(newSeries, HighchartsJsonSerializerContext.Default.LineSeries));
+    }
+
+    private async Task RemoveSeries()
+    {
+        await HighchartsService.RemoveSeriesAsync(chartComponent!.ChartContainerId, 1);
+    }
+
+    private async Task AddPoint()
+    {
+        await HighchartsService.AddPointAsync(chartComponent!.ChartContainerId, 0, "7", true, true);
+    }
+
+    private void HandlePointClick(PointClickEventArgs args)
+    {
+        selectedPoint = args;
+        StateHasChanged();
+    }
+}

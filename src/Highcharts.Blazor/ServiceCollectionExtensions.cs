@@ -7,6 +7,6 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddHighchartsBlazor(this IServiceCollection services)
     {
-        return services.AddSingleton<HighchartsService>();
+        return services.AddScoped<IHighchartsService, HighchartsService>();
     }
 }

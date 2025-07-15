@@ -1,17 +1,68 @@
-﻿@page "/"
+﻿
+@page "/"
 @using Highcharts.Blazor.Models
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Highcharts.Blazor Demo</h1>
 
-Welcome to your new app.
+<p>This page demonstrates how to use the Highcharts.Blazor component to render a chart.</p>
 
 <HighchartsChart Options="@chartOptions" />
 
 @code {
     private ChartOptions chartOptions = new()
     {
-        Title = new Title { Text = "My First Blazor Chart" }
+        Chart = new Chart
+        {
+            Type = "column"
+        },
+        Title = new Title
+        {
+            Text = "Monthly Average Rainfall"
+        },
+        Subtitle = new Subtitle
+        {
+            Text = "Source: WorldClimate.com"
+        },
+        XAxis = new XAxis
+        {
+            Categories = new List<object> { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+        },
+        YAxis = new YAxis
+        {
+            Title = new Title
+            {
+                Text = "Rainfall (mm)"
+            }
+        },
+        Tooltip = new Tooltip
+        {
+            ValueSuffix = " mm"
+        },
+        Series = new List<Series>
+        {
+            new ColumnSeries
+            {
+                Name = "Tokyo",
+                Data = new List<object> { 49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 }
+            },
+            new ColumnSeries
+            {
+                Name = "New York",
+                Data = new List<object> { 83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3 }
+            },
+            new ColumnSeries
+            {
+                Name = "London",
+                Data = new List<object> { 48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2 }
+            },
+            new ColumnSeries
+            {
+                Name = "Berlin",
+                Data = new List<object> { 42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1 }
+            }
+        }
     };
 }
+
